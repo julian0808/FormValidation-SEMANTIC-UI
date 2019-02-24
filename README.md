@@ -1,1 +1,1 @@
-permalink: /Form.html
+permalink: /index.html
