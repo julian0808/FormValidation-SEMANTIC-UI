@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/semantic.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui vertically divided grid">
+            <div class="two column row">
+                <div class="column">
+                  <form action="" class="ui form" id="frm-prueba" method="POST">
+                      <h4 class="ui dividing header">Register form</h4>
+                      <div class="field">
+                          <label>Name</label>
+                          <div class="two fields">
+                              <div class="field">
+                                  <input type="text" name="name" placeholder="Name">
+                              </div>
+                              <div class="field">
+                                  <input type="text" name="apellido" placeholder="Surname">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="field">
+                        <label>Account Information</label>
+                        <div class="fields">
+                            <div class="ten wide field">
+                                <input type="email" name="email" placeholder="E-mail">
+                            </div>
+                            <div class="six wide field">
+                                <select class="ui fluid dropdown" name="month">
+                                    <option value="">Born month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                </select>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="two fields">
+                          <div class="field">
+                              <input type="password" name="password" placeholder="Password">
+                          </div>
+                          <div class="field">
+                              <input type="password" name="password2" placeholder="Verify Password">
+                          </div>
+                      </div>
+                      <div class="ui error message"></div>
+                      <div class="ui button submit" id="btn-enviar">Register</div>
+
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+<!-- Scripts -->
+<script type="text/javascript">
+    $(function(){
+        $('#frm-prueba').form({
+            name : {
+                identifier : 'name',
+                rules : [
+                    {
+                        type : 'empty',
+                        prompt : 'Please fill up name field'
+                    }
+                ]
+            },
+            apellido : {
+                identifier : 'apellido',
+                rules : [
+                    {
+                        type : 'empty',
+                        prompt : 'Please fill up surname field'
+                    }
+                ]
+            },
+            email : {
+                identifier : 'email',
+                rules : [
+                    {
+                        type : 'email',
+                        prompt : 'Please fill up email field with a valid email'
+                    }
+                ]
+            },
+            month : {
+                identifier : 'month',
+                rules : [
+                    {
+                        type : 'empty',
+                        prompt : 'Please choose an option'
+                    }
+                ]
+            },
+            password : {
+                identifier : 'password',
+                rules : [
+                    {
+                        type : 'minLength[6]',
+                        prompt : 'Please write a password at least 6 characters'
+                    }
+                ]
+            },
+            password2 : {
+                identifier : 'password2',
+                rules : [
+                    {
+                        type : 'match[password]',
+                        prompt: 'The password need to be exactly the same'
+                    }
+                ]
+            }
+
+        },{
+            onSuccess : function(e){
+                e.preventDefault();
+                //alert();
+            }
+        });
+    });
+</script>
+
+
+
+</body>
+
+</html>
