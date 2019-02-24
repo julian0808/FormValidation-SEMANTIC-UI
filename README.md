@@ -1,2 +1,1 @@
-# FormValidation-SEMANTIC-UI
-SEMANTIC Validation Form
+permalink: /Form.html
